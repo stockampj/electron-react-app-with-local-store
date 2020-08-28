@@ -158,7 +158,8 @@ app.on('activate', () => {
 
 //add item to items list in store
 ipcMain.on('add-item', (event, item)=> {
-  const updatedItems = sessionData.addItem(JSON.parse(item))
+  sessionData.addItem(JSON.parse(item))
+  const updatedItems = JSON.stringify(sessionData.getItems())
   mainWindow.webContents.send('items-list', updatedItems)
 })
 
@@ -169,7 +170,7 @@ ipcMain.on('add-items', (event, items)=> {
     sessionData.addItem(item);
   })
   const updatedItems = JSON.stringify(sessionData.getItems())
-  mainWindow.webContents.send('items-list', updatedItems)
+  mainWindow.send('items-list', updatedItems)
 })
 
 //delete item from items list in store
@@ -184,8 +185,8 @@ ipcMain.on('get-items', (event)=>{
   mainWindow.webContents.send('items-list', updatedItems)
 })
 
-ipcMain.on('button-clicked', ()=>{
+ipcMain.on('button-clicked', (event, arg)=>{
   console.log('button-click-received')
-  const package = JSON.stringify({testObject: 'testObject'})
-  mainWindow.send('button-click-received', package)
+  const payloadObject = JSON.stringify({testObject: 'testObject'})
+  mainWindow.send('button-click-received', payloadObject)
 })
