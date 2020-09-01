@@ -5,9 +5,20 @@ body {
 }
 
 .test-button {
-  border-radius: 5px;
+
   height: 3em;
   font-size: 1em;
-  border: solid .05em black;
+  /* border: solid .05em black; */
+  border: none;
   box-shadow: .1em .1em .2em rgba(0,0,0,.5);
+  transition: margin-left .2s, margin-top .2s, background-color .1s;
+  background-color: rgba(230,230,230,1)
+}
+.test-button:hover {
+  background-color: rgba(255,255,255,1);
+  cursor: pointer;
+}
+.test-button:active {
+  margin-left:1px;
+  margin-top: 1px;
 }

@@ -3,7 +3,7 @@ const Store = require('electron-store');
 class DataStore extends Store {
   constructor (settings) {
     super(settings);
-    this.idCount = this.get('idCount')|| 0;
+    this.idCount = this.get('idCount')|| 1000;
     this.itemList = this.get('itemList') || [];
   };
   
@@ -15,7 +15,10 @@ class DataStore extends Store {
   addItem(item){
     this.idCount ++;
     this.set('idCount', this.idCount);
-    item.id=this.idCount;
+    item.id = `itemID-${this.idCount}`
+    const agentObject = {
+      [item.id]: item
+    }
     this.itemList = [...this.itemList, item];
     this.set('itemList', this.itemList);
   }

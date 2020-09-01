@@ -8,6 +8,7 @@ const DataStore = require('./src/backend/DataStore')
 
 //Create Store
 const sessionData = new DataStore({name: 'session_data'})
+const agentData = new DataStore({name: 'agent_data'})
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -155,6 +156,7 @@ app.on('activate', () => {
 
 
 ///////////////// This next section is adding listeners for the store/////////////////////
+// Transaction Store Listeners
 
 //add item to items list in store
 ipcMain.on('add-item', (event, item)=> {
@@ -189,4 +191,40 @@ ipcMain.on('button-clicked', (event, arg)=>{
   console.log('button-click-received')
   const payloadObject = JSON.stringify({testObject: 'testObject'})
   mainWindow.send('button-click-received', payloadObject)
+})
+
+
+///////////////////////////////////////////////////////////////////////////
+// Agent Store Listeners
+
+//add item to items list in store
+ipcMain.on('add-agent', (event, agent)=> {
+  console.log(agent)
+  agentData.addItem(JSON.parse(agent))
+  const updatedAgents = JSON.stringify(agentData.getItems())
+  mainWindow.webContents.send('agents-list', updatedAgents)
+})
+
+//add multiple entries to store
+ipcMain.on('add-agents', (event, agents)=> {
+  agentsList = JSON.parse(agents)
+  agentsList.forEach(agent=>{
+    agentData.addItem(agent);
+  })
+  const updatedAgents = JSON.stringify(agentData.getItems())
+  mainWindow.send('agents-list', updatedAgents)
+})
+
+//delete agent from agents list in store
+ipcMain.on('delete-agent', (event, id)=>{
+  const updatedAgents = JSON.stringify(agentData.deleteItem(id))
+  mainWindow.webContents.send('agents-list', updatedAgents)
+})
+
+// send the store data to the renderer
+ipcMain.on('get-agents', (event)=>{
+  console.log('get-agents-received')
+  const updatedAgents = JSON.stringify(agentData.getItems())
+  console.log(updatedAgents)
+  mainWindow.webContents.send('agents-list', updatedAgents)
 })

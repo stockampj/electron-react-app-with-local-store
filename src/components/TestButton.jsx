@@ -1,5 +1,5 @@
 import '../assets/css/App.css'
-import React, { Component, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import {ipcRenderer} from 'electron'
 
 export default function TestButton() {
