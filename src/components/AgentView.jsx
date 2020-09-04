@@ -43,7 +43,8 @@ export default function AgentView() {
 
   return (
     <div>
-      <button onClick={()=>{handleButtonClick()}}>Agent Button</button>
+      {/* <button onClick={()=>{handleButtonClick()}}>Agent Button</button> */}
+      <button onClick={()=> openAddAgentModal()}>Add Agent</button>
 
       <AgentList 
         agentList = {agentList} 

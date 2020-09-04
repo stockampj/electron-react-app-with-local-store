@@ -1,0 +1,35 @@
+.top-panel-wrapper {
+  overflow: hidden;
+}
+
+.top-panel {
+  background: linear-gradient(90deg, rgba(255,255,255,.05) .05%, rgba(255,255,255,.1) 30%, rgba(255,255,255,.1) 70%, rgba(255,255,255,0) 100%);
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  z-index: 100;
+  width: 100%;
+  height: 70px;
+  /* padding: 1em; */
+  border-bottom: solid 1px rgba(255,255,255,.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.top-panel-spacer {
+  width: 100%;
+  height: 70px;
+  margin: 0px;
+  /* background-color: purple; */
+}
+
+.app-name {
+  color: rgba(255,255,255,.8);
+  margin: 0px;
+  color: white;
+  font-size: 2em;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+

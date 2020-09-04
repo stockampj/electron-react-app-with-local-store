@@ -1,7 +1,8 @@
 /* Main CSS file */
 
 body {
-  background-color: gray;
+  background: rgba(25,35,70,1);
+  margin: 0px;
 }
 
 .test-button {
