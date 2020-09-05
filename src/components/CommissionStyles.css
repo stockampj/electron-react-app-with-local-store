@@ -1,0 +1,106 @@
+.commission-view-wrapper {
+  width: 100%;
+  height: calc(100vh - 70px);
+  position: relative;
+  padding: 1.5em;
+}
+
+.commission-view {
+  /* border: solid thin rgba(255,255,255,.2); */
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.commission-tools-wrapper {
+  background: rgba(255,255,255,.05);
+  margin-bottom: 1em;
+  /* border: thin solid rgba(255,255,255,.2); */
+}
+
+ul.tools-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0px;
+}
+
+.commission-tool {
+  padding: .3em;
+}
+.commission-tool:hover {
+  background-color: rgba(255,255,255,.3);
+  cursor: pointer;
+}
+
+.commission-list {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: .2em;
+}
+
+.commission-item {
+  margin: 0em 0em .5em 0em;
+  border-top: solid 1px rgba(255,255,255,.1);
+  padding: .5em;
+}
+
+.commission-item:hover {
+  cursor: pointer;
+  background-color: rgba(255,255,255,.2);
+}
+
+.commission-item:first-child{
+  border: none;
+}
+
+.commission-short-view{
+  position: relative;
+  display:flex;
+  width: 100%;
+  /* justify-content: space-between; */
+}
+
+.commission-expanded-view {
+  margin-top: 1em;
+  margin-left: 3em;
+  font-size: .8em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 200px;
+  transition: height .3s;
+}
+
+.commission-expanded-view.hide-expanded-view {
+  height: 0em;
+  overflow: hidden;
+}
+
+.commission-data {
+  min-width: 8em;
+  width: 10%;
+  margin-right: 1em;
+  /* background-color:red; */
+}
+
+.address {
+  min-width: 20em;
+}
+
+.selected-item {
+  background-color: rgba(255,255,255,.05);
+}
+
+.data-label {
+  color: rgba(255,255,255,.5);
+  font-style: italic;
+  font-size: .7em;
+}
+
+

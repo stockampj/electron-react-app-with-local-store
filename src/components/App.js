@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import TestButton from './TestButton.jsx'
 import AgentView from './AgentView.jsx'
 import TopPanel from './TopPanel.jsx'
-import CommissionList from './CommissionList.jsx'
+import CommissionView from './CommissionView.jsx'
 import ReportView from './ReportView.jsx'
 
 function App() {
@@ -14,8 +14,8 @@ function App() {
         {/* <TestButton/>
         <AgentView/> */}
         <TopPanel/>
-        <CommissionList/>
-        <ReportView/>
+        <CommissionView/>
+        {/* <ReportView/> */}
       </div>
     )
   }
