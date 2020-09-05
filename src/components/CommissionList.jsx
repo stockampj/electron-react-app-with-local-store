@@ -6,7 +6,7 @@ export default function CommissionList () {
     {
       id: 1,
       date: '5/25/2020',
-      agent: 'bob hardboil',
+      agent: 'Bob Hardboil',
       address: '12546 Viewpoint Dr, Pasadena CA 91064',
       price: 5000000,
       totalCommissionRate: 2.5,
@@ -46,7 +46,7 @@ export default function CommissionList () {
     {
       id: 3,
       date: '5/25/2020',
-      agent: 'bob hardboil',
+      agent: 'Cecil Prusinski',
       address: '12546 Viewpoint Dr, Pasadena CA 91064',
       price: 5000000,
       totalCommissionRate: 2.5,
