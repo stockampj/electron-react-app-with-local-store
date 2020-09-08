@@ -1,6 +1,5 @@
 import React, { useImperativeHandle } from 'react'
 import {useState} from 'react'
-import modal from 'modal-vanilla'
 
 
 export default function CommissionItem (props){
@@ -53,7 +52,9 @@ export default function CommissionItem (props){
     return (
       <div className="other-agent-fees">
         <div className="other-agent-fees-collapsed"
-          onMouseEnter={()=>setOtherFeesShown(true)}
+          onMouseEnter={()=>{
+            if(otherCostsExist){setOtherFeesShown(true)}
+          }}
           onMouseLeave={()=>setOtherFeesShown(false)}
         >
           {`$ ${totalCost()}`}
