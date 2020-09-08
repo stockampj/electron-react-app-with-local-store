@@ -1,4 +1,4 @@
-import '../assets/css/App.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 import React, { Component } from 'react'
 // import {ipcRenderer} from 'electron'
 import TestButton from './TestButton.jsx'
