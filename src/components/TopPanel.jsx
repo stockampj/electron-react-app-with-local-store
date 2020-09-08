@@ -6,8 +6,7 @@ export default function TopPanel() {
   return (
     <div className="top-panel-wrapper">
       <div className="top-panel">
-        <h1 className="app-name">Commission Tracker</h1>
-        {/* <img  alt=""/> */}
+        <h1 className="app-name">Commission Tracker <i class="fas fa-calculator"></i></h1>
       </div>
       <div className="top-panel-spacer"></div>
     </div>

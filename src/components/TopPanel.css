@@ -29,6 +29,11 @@
   margin: 0px;
   color: white;
   font-size: 2em;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 200;
+}
+
+.fa-calculator {
+  font-size: .8em;
 }
 
