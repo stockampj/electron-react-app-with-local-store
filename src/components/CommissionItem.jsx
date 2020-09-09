@@ -1,11 +1,13 @@
 import React, { useImperativeHandle } from 'react'
 import {useState} from 'react'
+import AddCommissionModal from './AddCommissionModal.jsx'
 
 
 export default function CommissionItem (props){
 
   const [selectedItem, setselectedItem] = useState(false)
   const [otherFeesShown, setOtherFeesShown] = useState(false)
+  const [showEditModal, setShowEditModal] = useState(false)
 
   const  {
     id,

@@ -210,6 +210,9 @@ ul.tools-list {
   box-shadow: 0em 0em .1em .05em rgba(255,255,255,.5);
 }
 
+.modal-content {
+  color: rgba(25,35,70,1);
+}
 
 
 

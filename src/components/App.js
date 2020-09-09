@@ -1,5 +1,5 @@
 import '@fortawesome/fontawesome-free/js/all.js'
-
+import '../assets/css/bootstrap.min.css'
 import React, { Component } from 'react'
 // import {ipcRenderer} from 'electron'
 import TestButton from './TestButton.jsx'
@@ -13,10 +13,10 @@ function App() {
 
     return (
       <div>
-        {/* <TestButton/>
-        <AgentView/> */}
         <TopPanel/>
         <CommissionView/>
+        {/* <TestButton/> */}
+        {/* <AgentView/> */}
         {/* <ReportView/> */}
       </div>
     )
