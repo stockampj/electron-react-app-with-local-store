@@ -97,15 +97,16 @@ ul.tools-list {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 200px;
+  min-height: 200px;
   overflow: hidden;
   /* background-color: rgba(255,255,255,.05); */
-  transition: height .3s, padding .3s;
+  transition: min-height .3s, padding .3s, height .3s;
 }
 
 .commission-expanded-view.hide-expanded-view {
   height: 0em;
-  padding: 0px;
+  min-height: 0em;
+  padding: 0em;
 }
 
 .money-row {
@@ -208,6 +209,12 @@ ul.tools-list {
   background-color: rgba(255,255,255,.1);
   cursor: pointer;
   box-shadow: 0em 0em .1em .05em rgba(255,255,255,.5);
+}
+
+.agent-names{
+  margin: 1em 0em 1em 0em;
+  display:flex;
+  flex-direction: column;
 }
 
 .modal-content {

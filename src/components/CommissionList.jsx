@@ -12,7 +12,7 @@ export default function CommissionList () {
             key={commission.id}
             id={commission.id}
             date={commission.date}
-            agent={commission.agent}
+            agents={commission.agents}
             address={commission.address}
             price={commission.price}
             totalCommissionRate={commission.totalCommissionRate}

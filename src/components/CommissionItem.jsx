@@ -12,7 +12,7 @@ export default function CommissionItem (props){
   const  {
     id,
     date,
-    agent,
+    agents,
     address,
     price,
     totalCommissionRate,
@@ -70,12 +70,16 @@ export default function CommissionItem (props){
     )
   }
 
+  const agentNameDiv = () => agents.map((agent)=>{
+    return (<div key={agent} className="agent-name">{agent}</div>)
+  })
+
   return (
     <div className={`commission-item`} id={`commision-id:${id}`}>
       <div className={`commission-short-view ${selectedClass}`} onClick={()=>{handleExpandedViewToggle()}}>
         <div className="short-view-subsection date-agent">
           <div className="data-item agent-name">{date}</div>
-          <div className="data-item">{agent}</div>
+          
         </div>
         <div className="short-view-subsection address">
           <div className="data-item address">{address}</div>
@@ -123,8 +127,10 @@ export default function CommissionItem (props){
           <button className="commission-edit-button">
             <i className="fas fa-edit"></i> Edit
           </button>
-        
+        </div>
 
+        <div className="data-item agent-names">
+          {agentNameDiv()}
         </div>
 
         <div className="notes-row">
