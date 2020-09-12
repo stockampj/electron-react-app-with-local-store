@@ -29,21 +29,22 @@ export default function CommissionItem (props){
   const selectedClass = (selectedItem) ? 'selected-item' : ''
   const showClass = (selectedItem) ? '' : 'hide-expanded-view'
 
-  const otherFeesDiv = () => {
-    const otherCostsExist = (otherAgentFees.length>0) ? true : false
-    const totalCost = ()=>{
-      let total = 0
-      if (otherCostsExist){
-        otherAgentFees.map(fee=>{total += fee.feeCost})
-      }
-      return total
+  const otherCostsExist = (otherAgentFees.length>0) ? true : false
+  const totalCost = ()=>{
+    let total = 0
+    if (otherCostsExist){
+      otherAgentFees.map(fee=>{total += fee.feeCost})
     }
+    return total
+  }
+
+  const otherFeesDiv = () => {
 
     const otherFeesExpanded = otherAgentFees.map(fee=>{
       if(otherCostsExist){
         return(
           <div className="expanded-other-fee" key={fee.feeName}>
-            <div>{fee.feeName}</div>
+            <div>{`${fee.feeName}: `}</div>
             <div>{`$ ${fee.feeCost}`}</div>
           </div>
         )
@@ -52,7 +53,7 @@ export default function CommissionItem (props){
       }
     })
     return (
-      <div className="other-agent-fees">
+      <div className="other-agent-fees" >
         <div className="other-agent-fees-collapsed"
           onMouseEnter={()=>{
             if(otherCostsExist){setOtherFeesShown(true)}
@@ -70,8 +71,27 @@ export default function CommissionItem (props){
     )
   }
 
-  const agentNameDiv = () => agents.map((agent)=>{
-    return (<div key={agent} className="agent-name">{agent}</div>)
+  const agentColumnDiv = () => agents.map((agent)=>{
+    return (
+      <div key={agent.name} className="agent-column">
+        <div className="agent-name data-item">{agent.name}</div>
+        
+        <div className="data-item spacer">#</div>
+        <div className="data-item spacer">#</div>
+
+        <div className="data-item">
+          <div>$ {((price*agentCommissionRate*0.01*agent.commissionSplit)).toLocaleString('en-US')}</div>
+        </div>
+
+        <div className="data-item">
+          <div>$ {((tcFee*agent.commissionSplit)).toLocaleString('en-US')}</div>
+        </div>
+
+        <div className="data-item">
+          <div>$ {((totalCost()*agent.commissionSplit)).toLocaleString('en-US')}</div>
+        </div>
+      </div>
+    )
   })
 
   return (
@@ -86,14 +106,17 @@ export default function CommissionItem (props){
         </div>
       </div>
       <div className={`commission-expanded-view ${showClass}`}>
-        <div className="money-row">
 
-            <div className="data-item">
-              <div className="data-label">Price</div>
-              <div>$ {price.toLocaleString('en-US')}</div>
-            </div>
+        <div className="money-breakdown">
+          
+          <div className="total-and-agent">
 
-            <div className="commission-row">
+            <div className="money-column">
+
+              <div className="data-item">
+                <div className="data-label">Price</div>
+                <div>$ {price.toLocaleString('en-US')}</div>
+              </div>
 
               <div className="data-item">
                 <div className="data-label">Total ({totalCommissionRate}%)</div>
@@ -110,32 +133,37 @@ export default function CommissionItem (props){
                 <div>$ {((price*agentCommissionRate*0.01)).toLocaleString('en-US')}</div>
               </div>
 
+              <div className="data-item">
+                <div className="data-label">TC Fee</div>
+                <div>$ {tcFee.toLocaleString('en-US')}</div>
+              </div>
+
+              <div className="data-item">
+                <div className="data-label">Other Fees</div>
+                  {otherFeesDiv()}
+              </div>
+              
             </div>
 
-          <div className="data-item">
-            <div className="data-label">TC Fee</div>
-            <div>$ {tcFee.toLocaleString('en-US')}</div>
-          </div>
-
-          <div className="data-item">
-            <div className="data-label">Other Fees</div>
-            <div>
-              {otherFeesDiv()}
+            <div className="agent-breakdown">
+                {agentColumnDiv()}
             </div>
-          </div>
           
-          <button className="commission-edit-button">
-            <i className="fas fa-edit"></i> Edit
-          </button>
+          </div>
+
+          <div className="commission-buttons">
+            <button className="commission-edit-button">
+              <i className="fas fa-edit"></i> Edit
+            </button>
+          </div>
+
         </div>
 
-        <div className="data-item agent-names">
-          {agentNameDiv()}
-        </div>
+
 
         <div className="notes-row">
 
-          <div className="data-item">
+          <div className="">
             <div className="data-label">Notes</div>
             <div>{notes}</div>
           </div>

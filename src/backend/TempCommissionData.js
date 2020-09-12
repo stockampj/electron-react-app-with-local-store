@@ -3,8 +3,16 @@ const tempCommissionData = [
     id: 1,
     date: '5/25/2020',
     agents: [
-      'Bob Hardboil',
-      'Sue Smith'
+      {
+        id: 1,
+        name: 'Bob Hardboil',
+        commissionSplit: .8
+      },
+      {
+        id: 2,
+        name: 'Sue Smith',
+        commissionSplit: .2
+      }
     ],
     address: '12546 Viewpoint Dr, Pasadena CA 91064',
     price: 5000000,
@@ -28,8 +36,16 @@ const tempCommissionData = [
     id: 2,
     date: '5/27/2020',
     agents: [
-      'Judy Wrangler',
-      'Sue Smith'
+      {
+      id: 3,
+      name: 'Judy Wrangler',
+      commissionSplit: .5
+      },
+      {
+        id: 2,
+        name: 'Sue Smith',
+        commissionSplit: .5
+      }
     ],
     address: '82 Brance, Los Angeles CA 91054',
     price: 300000,
@@ -49,7 +65,11 @@ const tempCommissionData = [
     id: 3,
     date: '5/25/2020',
     agents: [
-      'Cecil Prusinski',
+      {
+        id: '4',
+        name: 'Cecil Prusinski',
+        commissionSplit: .5
+      },
     ],
     address: '12546 Viewpoint Dr, Pasadena CA 91064',
     price: 5000000,
