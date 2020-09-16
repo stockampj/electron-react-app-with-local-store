@@ -12,6 +12,7 @@ body {
   min-width: 1000px;
   font-family: 'Open Sans', sans-serif;
   width: calc(100vw);
+  overflow-x: hidden;
 }
 
 .hidden {
@@ -35,4 +36,24 @@ body {
 .test-button:active {
   margin-left:1px;
   margin-top: 1px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(25,35,70,1);
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.1) 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,.3)
 }
