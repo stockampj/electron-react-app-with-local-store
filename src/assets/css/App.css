@@ -11,6 +11,7 @@ body {
   font-size: 1.5em;
   min-width: 1000px;
   font-family: 'Open Sans', sans-serif;
+  width: calc(100vw);
 }
 
 .hidden {
